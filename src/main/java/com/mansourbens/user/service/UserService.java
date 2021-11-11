@@ -27,7 +27,7 @@ public class UserService {
     public ResponseTemplateVO getUserWithDepartment(Long userId) throws NoSuchElementException {
         ResponseTemplateVO vo = new ResponseTemplateVO();
            User user = userRepository.findById(userId).get();
-           Department department = restTemplate.getForObject("http://localhost:9001/departments/" + user.getDepartmentId(),
+           Department department = restTemplate.getForObject("http://DEPARTMENT-SERVICE/departments/" + user.getDepartmentId(),
                    Department.class);
 
            vo.setUser(user);
