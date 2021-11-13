@@ -6,6 +6,7 @@ import com.mansourbens.user.VO.ResponseTemplateVO;
 import com.mansourbens.user.entity.User;
 import com.mansourbens.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,6 +19,7 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
+    @LoadBalanced
     private RestTemplate restTemplate;
 
     public User saveUser(User user) {
